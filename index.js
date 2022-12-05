@@ -8,7 +8,7 @@ async function getData(){
     let res=await fetch(url);
     res=await res.json();
     console.log(res);
-    display(res);
+    // display(res);
 }
 
 async function storeData(e){
@@ -24,7 +24,8 @@ async function storeData(e){
         image:image.value,
         brand:brand.value,
         price:+price.value,
-        id:Math.random()
+        id:Math.random(),
+        status:true
     }
 
      res=await fetch(url,{
@@ -32,27 +33,7 @@ async function storeData(e){
       body:JSON.stringify(obj),
       headers:{"Content-Type":"application/json",},
     })
-    getData();
+     getData();
     form.reset();
 }
 
-function display(data){
-    let container=document.getElementById("container");
-    container.innerHTML=null;
-    data.forEach(function(ele){
-     let div=document.createElement("div");
-     let image=document.createElement("img");
-     image.src=ele.image;
-     let name=document.createElement("h3");
-     name.innerText=ele.name;
-     let brand=document.createElement("h3");
-     brand.innerText=ele.brand;
-     let price=document.createElement("p");
-     price.innerText=ele.price;
-     let updateBtn=document.createElement("button");
-     updateBtn.innerText="Update Price"
-     div.append(image,name,brand,price,updateBtn);
-     container.append(div);
-
-    })
-}

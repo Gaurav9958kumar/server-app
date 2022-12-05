@@ -26,15 +26,7 @@
   ],
 
   "product":[
-    {
-       "id":"8767565675",
-       "status":false,
-       "name":"ravi",
-       "image":"abc",
-       "brand":"apple",
-       "price":"1200"
-
-    }
+    
  ]
 
 }  
